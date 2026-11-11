@@ -20,7 +20,7 @@ export class OrderItem {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'order_id' })
-  order: Order;
+  order: object;
 
   @ManyToOne(() => Product, { nullable: false, onDelete: 'RESTRICT' })
   @JoinColumn({ name: 'product_id' })

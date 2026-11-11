@@ -33,7 +33,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -46,7 +57,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/products"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "GET producto por ID",
@@ -54,7 +76,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/products/{{productId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "POST crear producto",
@@ -71,7 +104,18 @@
               "raw": "{\"name\":\"Limonada de menta\",\"category\":\"bebidas\",\"description\":\"Limonada natural con menta\",\"price\":2200,\"stock\":10,\"available\":true}"
             },
             "url": "{{baseUrl}}/products"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "PATCH actualizar producto",
@@ -88,7 +132,18 @@
               "raw": "{\"price\":2300,\"stock\":12}"
             },
             "url": "{{baseUrl}}/products/{{productId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "DELETE producto",
@@ -96,7 +151,18 @@
             "method": "DELETE",
             "header": [],
             "url": "{{baseUrl}}/products/{{productId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -109,7 +175,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/customers"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "GET cliente por ID",
@@ -117,7 +194,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/customers/{{customerId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "POST crear cliente",
@@ -134,7 +222,18 @@
               "raw": "{\"fullName\":\"Nuevo Cliente\",\"phone\":\"11-5555-0199\",\"email\":\"nuevo@example.com\",\"address\":\"Calle 123\"}"
             },
             "url": "{{baseUrl}}/customers"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "PATCH actualizar cliente",
@@ -151,7 +250,18 @@
               "raw": "{\"address\":\"Calle 456\"}"
             },
             "url": "{{baseUrl}}/customers/{{customerId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "DELETE cliente",
@@ -159,7 +269,18 @@
             "method": "DELETE",
             "header": [],
             "url": "{{baseUrl}}/customers/{{customerId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -172,7 +293,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/orders"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "GET pedido por ID",
@@ -180,7 +312,18 @@
             "method": "GET",
             "header": [],
             "url": "{{baseUrl}}/orders/{{orderId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "POST crear pedido para retiro",
@@ -197,7 +340,18 @@
               "raw": "{\"customerId\":1,\"deliveryType\":\"RETIRO\",\"items\":[{\"productId\":1,\"quantity\":1},{\"productId\":4,\"quantity\":1}]}"
             },
             "url": "{{baseUrl}}/orders"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "PATCH cambiar estado del pedido",
@@ -214,7 +368,18 @@
               "raw": "{\"status\":\"EN PREPARACION\"}"
             },
             "url": "{{baseUrl}}/orders/{{orderId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "DELETE pedido",
@@ -222,7 +387,18 @@
             "method": "DELETE",
             "header": [],
             "url": "{{baseUrl}}/orders/{{orderId}}"
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

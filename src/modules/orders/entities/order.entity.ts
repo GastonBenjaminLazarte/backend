@@ -34,7 +34,7 @@ export class Order {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'customer_id' })
-  customer: Customer;
+  customer: object;
 
   @Column({
     type: 'enum',
@@ -62,5 +62,5 @@ export class Order {
   createdAt: Date;
 
   @OneToMany(() => OrderItem, (item) => item.order, { cascade: true })
-  items: OrderItem[];
+  items: object[];
 }

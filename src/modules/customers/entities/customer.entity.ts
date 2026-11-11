@@ -19,5 +19,5 @@ export class Customer {
   address: string | null;
 
   @OneToMany(() => Order, (order) => order.customer)
-  orders: Order[];
+  orders: object[];
 }

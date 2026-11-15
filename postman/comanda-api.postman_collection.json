@@ -401,6 +401,106 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Validación de DTOs (esperan HTTP 400)",
+      "item": [
+        {
+          "name": "POST producto sin campo obligatorio",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"category\":\"bebidas\",\"price\":2200,\"stock\":10,\"available\":true}"
+            },
+            "url": "{{baseUrl}}/products"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('HTTP 400 por nombre faltante', function () { pm.response.to.have.status(400); });"]
+            }
+          }]
+        },
+        {
+          "name": "POST producto con precio de tipo texto",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Limonada\",\"category\":\"bebidas\",\"price\":\"veinte\",\"stock\":10,\"available\":true}"
+            },
+            "url": "{{baseUrl}}/products"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('HTTP 400 por precio inválido', function () { pm.response.to.have.status(400); });"]
+            }
+          }]
+        },
+        {
+          "name": "POST producto con disponibilidad inválida",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Limonada\",\"category\":\"bebidas\",\"price\":2200,\"stock\":10,\"available\":\"si\"}"
+            },
+            "url": "{{baseUrl}}/products"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('HTTP 400 por booleano inválido', function () { pm.response.to.have.status(400); });"]
+            }
+          }]
+        },
+        {
+          "name": "POST cliente con email inválido",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"fullName\":\"Cliente de prueba\",\"phone\":\"11-5555-0198\",\"email\":\"no-es-un-email\"}"
+            },
+            "url": "{{baseUrl}}/customers"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('HTTP 400 por email inválido', function () { pm.response.to.have.status(400); });"]
+            }
+          }]
+        },
+        {
+          "name": "POST pedido con cantidad de tipo texto",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"customerId\":1,\"deliveryType\":\"RETIRO\",\"items\":[{\"productId\":1,\"quantity\":\"dos\"}]}"
+            },
+            "url": "{{baseUrl}}/orders"
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('HTTP 400 por cantidad inválida', function () { pm.response.to.have.status(400); });"]
+            }
+          }]
+        }
+      ]
     }
   ]
 }

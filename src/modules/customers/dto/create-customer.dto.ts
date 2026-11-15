@@ -1,5 +1,6 @@
 import {
   IsEmail,
+  IsNotEmpty,
   IsOptional,
   IsString,
   MaxLength,
@@ -8,11 +9,13 @@ import {
 
 export class CreateCustomerDto {
   @IsString()
+  @IsNotEmpty()
   @MinLength(2)
   @MaxLength(120)
   fullName: string;
 
   @IsString()
+  @IsNotEmpty()
   @MaxLength(30)
   phone: string;
 

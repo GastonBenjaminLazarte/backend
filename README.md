@@ -114,6 +114,8 @@ El tipo de entrega a domicilio requiere una dirección. Los productos asociados 
 
 Importá `postman/comanda-api.postman_collection.json` en Postman. La colección incluye solicitudes para consultar, crear, actualizar y eliminar productos, clientes y pedidos. La variable `baseUrl` usa `http://localhost:4000` por defecto. Para probar pedidos, cargá primero el esquema y los datos de ejemplo.
 
+Para comprobar el TP 10, iniciá la API con `npm run start:dev` e importá la colección. En la carpeta **Validación de DTOs (esperan HTTP 400)** ejecutá las solicitudes inválidas: omiten el nombre del producto, envían texto en el precio o cantidad, usan un valor no booleano en `available` y un email inválido. Cada una incluye una comprobación de respuesta HTTP 400. Las solicitudes válidas de creación de producto, cliente y pedido están en sus respectivas carpetas. También podés correr `npm run test:e2e`: incluye pruebas HTTP de DTOs que no requieren PostgreSQL.
+
 ## Comandos útiles
 
 ```bash

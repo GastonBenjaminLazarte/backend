@@ -2,6 +2,7 @@ import {
   IsBoolean,
   IsInt,
   IsNumber,
+  IsNotEmpty,
   IsOptional,
   IsString,
   MaxLength,
@@ -10,10 +11,12 @@ import {
 
 export class CreateProductDto {
   @IsString()
+  @IsNotEmpty()
   @MaxLength(120)
   name: string;
 
   @IsString()
+  @IsNotEmpty()
   @MaxLength(40)
   category: string;
 
